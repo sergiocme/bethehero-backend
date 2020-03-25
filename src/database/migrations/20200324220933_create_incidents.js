@@ -1,5 +1,7 @@
-exports.up = (knex) => {
-  knex.schema.createTable('incidents', (table) => {
+/* eslint-disable func-names */
+
+exports.up = function (knex) {
+  return knex.schema.createTable('incidents', (table) => {
     table.increments();
     table.string('title').notNullable();
     table.string('description').notNullable();
@@ -9,4 +11,6 @@ exports.up = (knex) => {
   });
 };
 
-exports.down = (knex) => knex.schema.dropTable('incidents');
+exports.down = function (knex) {
+  return knex.schema.dropTable('incidents');
+};
